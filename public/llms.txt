@@ -1,0 +1,67 @@
+# מאור רכבים — Generative Engine Optimization Map
+
+> A רכב ומכירת כלי רכב business.
+
+---
+
+## Pages
+
+### Home
+https://-064c9424.zappy5.app
+
+### Inventory
+https://-064c9424.zappy5.app/inventory
+
+### Vehicle Detail
+https://-064c9424.zappy5.app/vehicle
+
+### Contact
+https://-064c9424.zappy5.app/contact
+
+### Products
+https://-064c9424.zappy5.app/products
+המוצרים שלנו - מאור רכבים
+
+### Product Detail
+https://-064c9424.zappy5.app/product/:slug
+פרטי המוצר - מאור רכבים
+
+### Category
+https://-064c9424.zappy5.app/category/:slug
+מוצרים - מאור רכבים
+
+## Legal & Policy
+
+### Privacy Policy
+https://-064c9424.zappy5.app/privacy
+Information about how user data is collected, stored, and protected.
+
+### Terms & Conditions
+https://-064c9424.zappy5.app/terms
+Legal terms describing service usage, rights, and policies.
+
+### Accessibility Statement
+https://-064c9424.zappy5.app/accessibility
+Information about WCAG compliance and accessibility features.
+
+---
+
+# Business Context (for LLM understanding)
+
+## About מאור רכבים
+מאור רכבים is a business in the רכב ומכירת כלי רכב industry.
+
+## Target Audience
+- משפחות צעירות משדרגות
+- רוכשים ידידותיים לסביבה
+- אנשי עסקים
+
+## Industry
+רכב ומכירת כלי רכב
+
+---
+
+# Additional Resources
+
+- **Sitemap**: https://-064c9424.zappy5.app/sitemap.xml
+- **Robots.txt**: https://-064c9424.zappy5.app/robots.txt

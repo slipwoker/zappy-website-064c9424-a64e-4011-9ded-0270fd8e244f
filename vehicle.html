@@ -1,0 +1,692 @@
+<!DOCTYPE html><html lang="he" dir="rtl" data-zappy-site-type="ecommerce"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>פרטי רכב - מאור רכבים</title>
+  <meta name="description" content="Vehicle Detail - מאור רכבים provides professional רכב ומכירת כלי רכב services. Specializing in סוכנות מכוניות.">
+  <meta name="keywords" content="סוכנות מכוניות, סוכנות מכוניות חשמליות לעסקים, מכוניות משפחתיות מומלצות 2024, רכבי עסקים ליסינג ישראל">
+  <meta name="robots" content="index, follow">
+  
+  <meta property="og:title" content="פרטי רכב - מאור רכבים">
+  <meta property="og:description" content="Vehicle Detail - מאור רכבים provides professional רכב ומכירת כלי רכב services. Specializing in סוכנות מכוניות.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="he_IL">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="פרטי רכב - מאור רכבים">
+  <meta name="twitter:description" content="Vehicle Detail - מאור רכבים provides professional רכב ומכירת כלי רכב services. Specializing in סוכנות מכוניות.">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
+    <!-- Mickidum Accessibility Toolbar -->
+    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+<!-- Zappy Analytics -->
+<script>
+(function() {
+  'use strict';
+  
+  // Configuration
+  var config = {
+    websiteId: '064c9424-a64e-4011-9ded-0270fd8e244f',
+    apiUrl: 'https://qaapi.zappy5.com/api/analytics/track',
+    sessionDuration: 30 * 60 * 1000, // 30 minutes
+    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
+    trackPageViews: true,
+    trackClicks: true,
+    trackFormSubmissions: true
+  };
+  
+  // Generate or retrieve persistent visitor ID (30 days)
+  function getVisitorId() {
+    var visitorKey = 'zappy_visitor_' + config.websiteId;
+    var visitor = null;
+    
+    try {
+      visitor = localStorage.getItem(visitorKey);
+      if (visitor) {
+        var visitorData = JSON.parse(visitor);
+        var now = Date.now();
+        
+        // Check if visitor ID is still valid (30 days)
+        if (now - visitorData.created < config.visitorDuration) {
+          // Update last seen timestamp
+          visitorData.lastSeen = now;
+          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
+          return visitorData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: LocalStorage not available');
+    }
+    
+    // Generate new visitor ID
+    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      localStorage.setItem(visitorKey, JSON.stringify({
+        id: newVisitorId,
+        created: Date.now(),
+        lastSeen: Date.now()
+      }));
+    } catch (e) {
+      // Continue without local storage
+    }
+    
+    return newVisitorId;
+  }
+  
+  // Generate or retrieve session ID (30 minutes)
+  function getSessionId() {
+    var sessionKey = 'zappy_session_' + config.websiteId;
+    var session = null;
+    
+    try {
+      session = sessionStorage.getItem(sessionKey);
+      if (session) {
+        var sessionData = JSON.parse(session);
+        var now = Date.now();
+        
+        // Check if session is still valid
+        if (now - sessionData.timestamp < config.sessionDuration) {
+          // Update timestamp
+          sessionData.timestamp = now;
+          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          return sessionData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: SessionStorage not available');
+    }
+    
+    // Generate new session ID
+    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      sessionStorage.setItem(sessionKey, JSON.stringify({
+        id: newSessionId,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      // Continue without session storage
+    }
+    
+    return newSessionId;
+  }
+  
+  var visitorId = getVisitorId();
+  var sessionId = getSessionId();
+  
+  // Track an event
+  function trackEvent(eventType, data) {
+    data = data || {};
+    
+    var eventData = {
+      website_id: config.websiteId,
+      event_type: eventType,
+      page_path: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      visitor_id: visitorId,
+      session_id: sessionId,
+      metadata: data
+    };
+    
+    // Use sendBeacon if available (better for page unload events)
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+      navigator.sendBeacon(config.apiUrl, blob);
+    } else {
+      // Fallback to fetch
+      fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData),
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zappy Analytics: Failed to track event', error);
+      });
+    }
+  }
+  
+  // Track page view
+  if (config.trackPageViews) {
+    trackEvent('pageview', {
+      title: document.title,
+      url: window.location.href
+    });
+  }
+  
+  // Track clicks on important elements
+  if (config.trackClicks) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Track button clicks (counted as actions)
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
+        trackEvent('click', {
+          element: 'button',
+          text: button.textContent.trim().substring(0, 100),
+          id: button.id || null,
+          class: button.className || null
+        });
+      }
+      
+      // Track link clicks (navigation - not counted as actions)
+      else if (target.tagName === 'A' || target.closest('a')) {
+        var link = target.tagName === 'A' ? target : target.closest('a');
+        trackEvent('navigation', {
+          element: 'link',
+          text: link.textContent.trim().substring(0, 100),
+          href: link.href,
+          external: link.hostname !== window.location.hostname
+        });
+      }
+    }, true);
+  }
+  
+  // Track form submissions
+  if (config.trackFormSubmissions) {
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      
+      trackEvent('form_submit', {
+        form_id: form.id || null,
+        form_name: form.name || null,
+        form_action: form.action || null,
+        form_method: form.method || 'GET'
+      });
+    }, true);
+  }
+  
+  // Track time on page (send on page unload)
+  var pageLoadTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
+    
+    trackEvent('page_unload', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+  
+  // Expose tracking function globally for custom events
+  window.zappyAnalytics = {
+    track: trackEvent,
+    getVisitorId: function() { return visitorId; },
+    getSessionId: function() { return sessionId; }
+  };
+  
+})();
+</script>
+<!-- End Zappy Analytics -->
+
+    <style id="zappy-dropdown-submenu-styles">
+      /* ========== DESKTOP DROPDOWN SUBMENU STYLES ========== */
+      /* Base styles for dropdown submenus - parent must be positioned */
+      .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { position: relative; }
+      /* Submenu base - hidden by default */
+      .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { display: block !important; position: absolute !important; top: 100%; left: 0; min-width: 220px; background: white; border-radius: 8px; box-shadow: 0 8px 25px rgba(0,0,0,0.15); padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(10px); transition: all 0.3s ease; z-index: 1000; list-style: none; pointer-events: none; }
+      /* CRITICAL: Desktop hover styles to show dropdown */
+      .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Submenu item styling */
+      .sub-menu li { list-style: none; margin: 0; padding: 0; }
+      .sub-menu a { display: block !important; padding: 10px 16px !important; color: #333 !important; font-weight: 500; text-decoration: none; white-space: nowrap; transition: background-color 0.2s; }
+      .sub-menu a:hover { background-color: #f5f5f5; }
+      /* RTL (Hebrew/Arabic) dropdown positioning */
+      [dir="rtl"] .nav-menu .sub-menu, [dir="rtl"] nav .sub-menu, [dir="rtl"] .navbar .sub-menu, html[lang="he"] .nav-menu .sub-menu, html[lang="he"] nav .sub-menu, html[lang="he"] .navbar .sub-menu, html[lang="ar"] .nav-menu .sub-menu, html[lang="ar"] nav .sub-menu, html[lang="ar"] .navbar .sub-menu { left: auto !important; right: 0 !important; }
+      /* Hide empty dropdown menus */
+      .sub-menu:empty, .sub-menu:not(:has(li:not(.zappy-hidden-menu-item))), .sub-menu:not(:has(li)) { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
+      /* Desktop: show submenu on Menu Group hover */
+      li:has(.menu-group-title):hover > .sub-menu { opacity: 1 !important; visibility: visible !important; transform: translateY(0) !important; pointer-events: auto !important; }
+      /* Menu Group title styling */
+      .nav-menu > li > .menu-group-title, #navMenu > li > .menu-group-title { display: inline-block; padding: 0.5rem 1rem; cursor: default; user-select: none; }
+      
+      /* ========== MOBILE SUBMENU STYLES ========== */
+      @media (max-width: 768px) {
+        .nav-menu .sub-menu, nav .sub-menu, .navbar .sub-menu, #navMenu .sub-menu { position: static !important; transform: none !important; box-shadow: none !important; background: transparent !important; max-height: 0; overflow: hidden; opacity: 0; visibility: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; padding: 0 !important; border-radius: 0 !important; }
+        .sub-menu.mobile-expanded { max-height: 500px !important; opacity: 1 !important; visibility: visible !important; padding: 8px 0 8px 16px !important; }
+        [dir="rtl"] .sub-menu.mobile-expanded, html[lang="he"] .sub-menu.mobile-expanded { padding: 8px 16px 8px 0 !important; }
+        /* Disable hover behavior on mobile */
+        .nav-menu li:hover > .sub-menu, nav li:hover > .sub-menu, .navbar li:hover > .sub-menu, #navMenu li:hover > .sub-menu { opacity: 0; visibility: hidden; pointer-events: none; }
+        .nav-menu li > .sub-menu.mobile-expanded, nav li > .sub-menu.mobile-expanded, .navbar li > .sub-menu.mobile-expanded, #navMenu li > .sub-menu.mobile-expanded { opacity: 1 !important; visibility: visible !important; pointer-events: auto !important; }
+        .nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu) { display: flex !important; flex-wrap: wrap !important; align-items: center !important; }
+        .nav-menu li:has(.sub-menu) > a, nav li:has(.sub-menu) > a, .navbar li:has(.sub-menu) > a, #navMenu li:has(.sub-menu) > a { flex: 1 !important; }
+        .nav-menu li:has(.sub-menu) > a [class*="chevron"], .nav-menu li:has(.sub-menu) > a [class*="arrow"], .nav-menu li:has(.sub-menu) > a .fa-chevron-down, .nav-menu li:has(.sub-menu) > a .fa-angle-down, nav li:has(.sub-menu) > a [class*="chevron"], nav li:has(.sub-menu) > a [class*="arrow"], #navMenu li:has(.sub-menu) > a [class*="chevron"], #navMenu li:has(.sub-menu) > a [class*="arrow"] { display: none !important; visibility: hidden !important; }
+        .mobile-submenu-toggle { display: flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: 44px !important; background: transparent !important; border: none !important; cursor: pointer !important; }
+        .mobile-submenu-toggle::after { content: '' !important; width: 0 !important; height: 0 !important; border-left: 6px solid transparent !important; border-right: 6px solid transparent !important; border-top: 7px solid currentColor !important; transition: transform 0.3s ease !important; }
+        .mobile-submenu-toggle.expanded::after { transform: rotate(180deg) !important; }
+        .nav-menu li:has(.sub-menu) > .sub-menu, nav li:has(.sub-menu) > .sub-menu { flex-basis: 100% !important; width: 100% !important; }
+        .sub-menu a { padding: 10px 0 !important; display: block !important; }
+        .nav-menu li:has(.sub-menu) > .menu-group-title, nav li:has(.sub-menu) > .menu-group-title, .navbar li:has(.sub-menu) > .menu-group-title, #navMenu li:has(.sub-menu) > .menu-group-title { flex: 1 !important; }
+      }
+      @media (min-width: 769px) { .mobile-submenu-toggle { display: none !important; } }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-search-panel" id="mobile-search-panel">
+      <div class="search-wrapper">
+        <input type="text" id="mobile-search-input" placeholder="חיפוש מוצרים..." autocomplete="off">
+        <button class="search-submit" id="mobile-search-submit" title="חיפוש">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+        <button class="close-search" id="close-mobile-search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="search-results" id="mobile-search-results"></div>
+    </div>
+  
+<script>window.ZAPPY_WEBSITE_ID = "064c9424-a64e-4011-9ded-0270fd8e244f";window.ZAPPY_API_BASE = (window.location.pathname.includes('/preview') ? "http://localhost:5001" : "https://qaapi.zappy5.com");</script>
+  <nav class="navbar" dir="rtl">
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+    <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+    <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display:none;">
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+    </svg>
+  </button>
+  
+  <button class="phone-header-btn" aria-label="Call">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+  </button>
+  
+  <div class="nav-container">
+    <div class="nav-brand">
+      <a href="/" class="logo-link">
+        <img src="/assets/business-logo.webp" alt="מאור רכבים" class="logo" />
+      </a>
+    </div>
+    
+    <ul class="nav-menu" id="navMenu">
+
+    <li class="menu-item-has-children zappy-products-dropdown">
+      <a href="/products">
+        מוצרים
+        <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 9l6 6 6-6"></path>
+        </svg>
+      </a>
+      <ul class="sub-menu" id="zappy-nav-category-links">
+        <li><a href="/products">כל המוצרים</a></li>
+        <!-- Categories will be loaded dynamically -->
+      </ul>
+    </li>
+  <li><a href="/inventory">מלאי רכבים</a></li><li><a href="/vehicle">פרטי רכב</a></li><li><a href="/contact">צור קשר</a></li></ul><div class="nav-ecommerce-icons nav-icons-left"><div class="nav-search-box">
+    <input type="text" class="nav-search-input" id="nav-search-input" placeholder="חיפוש מוצרים..." autocomplete="off">
+    <button class="nav-search-btn" id="nav-search-btn" title="חיפוש">
+      <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    </button>
+    <div class="nav-search-results" id="nav-search-results"></div>
+  </div></div><div class="nav-ecommerce-icons nav-icons-right"><button class="nav-search-toggle" id="mobile-search-toggle" title="חיפוש"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></button></div>
+    
+    
+  </div>
+</nav>
+
+    <nav class="zappy-catalog-menu rtl" id="zappy-catalog-menu" dir="rtl">
+      <div class="catalog-menu-container">
+        <a href="/products" class="catalog-menu-item catalog-menu-all">כל המוצרים</a>
+        <div class="catalog-menu-categories" id="zappy-category-links">
+          <!-- Categories will be loaded dynamically -->
+        </div>
+      </div>
+    </nav>
+  
+  
+  <main>
+    <section class="vehicle-detail-vehicle-spotlight-section" data-layout-spec="Vehicle Detail-vehicle-spotlight">
+  <div class="vehicle-detail-vehicle-spotlight-container">
+    <div class="vehicle-detail-vehicle-spotlight-main-column">
+      <div class="vehicle-detail-vehicle-spotlight-image-wrapper">
+        <img data-placeholder="vehicle-detail-vehicle-spotlight-image-1" data-context="Professional showroom-quality photo of a modern sedan or family car parked in a clean, well-lit environment. The vehicle should be positioned at a 3/4 front angle showing the front grille and side profile. Background should be neutral (light gray or white) with soft natural lighting highlighting the vehicle's lines and finish. The car should appear pristine and well-maintained, representing a quality used vehicle for sale in Israel." width="1200" height="675" src="/assets/site-vehicle-detail-vehicle-spotlight-image-1.webp" alt="תמונת רכב ראשית - מראה חזיתי וצד">
+      </div>
+      
+      <div class="vehicle-detail-vehicle-spotlight-info">
+        <h1 class="vehicle-detail-vehicle-spotlight-title">טויוטה קורולה <span class="vehicle-detail-vehicle-spotlight-year">2021</span></h1>
+        
+        <div class="vehicle-detail-vehicle-spotlight-specs-strip">
+          <span class="vehicle-detail-vehicle-spotlight-spec-item">
+            <i class="fas fa-tachometer-alt" data-element-type="icon" data-icon-type="font-awesome" aria-hidden="true"></i>
+            <strong>45,000</strong> ק"מ
+          </span>
+          <span class="vehicle-detail-vehicle-spotlight-spec-divider">•</span>
+          <span class="vehicle-detail-vehicle-spotlight-spec-item">
+            <i class="fas fa-user" data-element-type="icon" data-icon-type="font-awesome" aria-hidden="true"></i>
+            בעלות <strong>ראשונה</strong>
+          </span>
+          <span class="vehicle-detail-vehicle-spotlight-spec-divider">•</span>
+          <span class="vehicle-detail-vehicle-spotlight-spec-item">
+            <i class="fas fa-cog" data-element-type="icon" data-icon-type="font-awesome" aria-hidden="true"></i>
+            <strong>אוטומט</strong>
+          </span>
+        </div>
+        
+        <div class="vehicle-detail-vehicle-spotlight-price">
+          <span class="vehicle-detail-vehicle-spotlight-price-label">מחיר:</span>
+          <span class="vehicle-detail-vehicle-spotlight-price-value">₪89,900</span>
+        </div>
+        
+        <p class="vehicle-detail-vehicle-spotlight-description">
+          רכב במצב מצוין עם תיעוד שירות מלא מהסוכנות הרשמית. הרכב עבר בדיקה טכנית מקיפה והוא מוכן למסירה מיידית. צבע מטאלי, מערכת בטיחות מתקדמת, וציוד עשיר מהיצרן.
+        </p>
+      </div>
+    </div>
+    
+    <div class="vehicle-detail-vehicle-spotlight-contact-column">
+      <div class="vehicle-detail-vehicle-spotlight-contact-card">
+        <h3 class="vehicle-detail-vehicle-spotlight-contact-title">קבלו את כל הפרטים</h3>
+        <p class="vehicle-detail-vehicle-spotlight-contact-text">
+          נשמח לענות על כל שאלה ולתאם צפייה ברכב במועד הנוח לכם
+        </p>
+        
+        <div class="vehicle-detail-vehicle-spotlight-contact-buttons">
+          <a href="/contact" class="vehicle-detail-vehicle-spotlight-btn vehicle-detail-vehicle-spotlight-btn-whatsapp">
+            <i class="fab fa-whatsapp" data-element-type="icon" data-icon-type="font-awesome" aria-hidden="true"></i>
+            שלחו הודעה בוואטסאפ
+          </a>
+          <a href="/contact" class="vehicle-detail-vehicle-spotlight-btn vehicle-detail-vehicle-spotlight-btn-secondary">
+            <i class="fas fa-envelope" data-element-type="icon" data-icon-type="font-awesome" aria-hidden="true"></i>
+            בקשו פרטים נוספים
+          </a>
+        </div>
+        
+        <div class="vehicle-detail-vehicle-spotlight-expectations">
+          <div class="vehicle-detail-vehicle-spotlight-expectation-item">
+            <i class="fas fa-check-circle" data-element-type="icon" data-icon-type="font-awesome" aria-hidden="true"></i>
+            <span>תשובות ברורות ומפורטות</span>
+          </div>
+          <div class="vehicle-detail-vehicle-spotlight-expectation-item">
+            <i class="fas fa-check-circle" data-element-type="icon" data-icon-type="font-awesome" aria-hidden="true"></i>
+            <span>ללא לחץ או התחייבות</span>
+          </div>
+          <div class="vehicle-detail-vehicle-spotlight-expectation-item">
+            <i class="fas fa-check-circle" data-element-type="icon" data-icon-type="font-awesome" aria-hidden="true"></i>
+            <span>מענה מהיר באותו היום</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="vehicle-detail-spec-table-section" data-layout-spec="Vehicle Detail-spec-table">
+  <div class="vehicle-detail-spec-table-section__container">
+    <div class="vehicle-detail-spec-table-section__header">
+      <h2 class="vehicle-detail-spec-table-section__title">מפרט טכני</h2>
+      <p class="vehicle-detail-spec-table-section__subtitle">כל הפרטים במקום אחד, בצורה ברורה ונגישה</p>
+    </div>
+
+    <div class="vehicle-detail-spec-table-section__table-wrapper">
+      <table class="vehicle-detail-spec-table-section__table">
+        <tbody>
+          <tr class="vehicle-detail-spec-table-section__row">
+            <td class="vehicle-detail-spec-table-section__label">שנת ייצור</td>
+            <td class="vehicle-detail-spec-table-section__value">2022</td>
+          </tr>
+          <tr class="vehicle-detail-spec-table-section__row vehicle-detail-spec-table-section__row--alt">
+            <td class="vehicle-detail-spec-table-section__label">קילומטראז'</td>
+            <td class="vehicle-detail-spec-table-section__value">45,000 ק"מ</td>
+          </tr>
+          <tr class="vehicle-detail-spec-table-section__row">
+            <td class="vehicle-detail-spec-table-section__label">בעלויות קודמות</td>
+            <td class="vehicle-detail-spec-table-section__value">יד ראשונה</td>
+          </tr>
+          <tr class="vehicle-detail-spec-table-section__row vehicle-detail-spec-table-section__row--alt vehicle-detail-spec-table-section__row--group-end">
+            <td class="vehicle-detail-spec-table-section__label">מספר דגם</td>
+            <td class="vehicle-detail-spec-table-section__value">פולקסווגן גולף GTI</td>
+          </tr>
+
+          <tr class="vehicle-detail-spec-table-section__row">
+            <td class="vehicle-detail-spec-table-section__label">נפח מנוע</td>
+            <td class="vehicle-detail-spec-table-section__value">2.0 ליטר טורבו</td>
+          </tr>
+          <tr class="vehicle-detail-spec-table-section__row vehicle-detail-spec-table-section__row--alt">
+            <td class="vehicle-detail-spec-table-section__label">תיבת הילוכים</td>
+            <td class="vehicle-detail-spec-table-section__value">אוטומטית 7 הילוכים DSG</td>
+          </tr>
+          <tr class="vehicle-detail-spec-table-section__row">
+            <td class="vehicle-detail-spec-table-section__label">סוג דלק</td>
+            <td class="vehicle-detail-spec-table-section__value">בנזין 95 אוקטן</td>
+          </tr>
+          <tr class="vehicle-detail-spec-table-section__row vehicle-detail-spec-table-section__row--alt vehicle-detail-spec-table-section__row--group-end">
+            <td class="vehicle-detail-spec-table-section__label">הנעה</td>
+            <td class="vehicle-detail-spec-table-section__value">קדמית</td>
+          </tr>
+
+          <tr class="vehicle-detail-spec-table-section__row">
+            <td class="vehicle-detail-spec-table-section__label">צבע חיצוני</td>
+            <td class="vehicle-detail-spec-table-section__value">אפור מטאלי</td>
+          </tr>
+          <tr class="vehicle-detail-spec-table-section__row vehicle-detail-spec-table-section__row--alt">
+            <td class="vehicle-detail-spec-table-section__label">ריפוד פנימי</td>
+            <td class="vehicle-detail-spec-table-section__value">עור שחור עם תפרים אדומים</td>
+          </tr>
+          <tr class="vehicle-detail-spec-table-section__row vehicle-detail-spec-table-section__row--group-end">
+            <td class="vehicle-detail-spec-table-section__label">גג פנורמי</td>
+            <td class="vehicle-detail-spec-table-section__value">כן</td>
+          </tr>
+
+          <tr class="vehicle-detail-spec-table-section__row vehicle-detail-spec-table-section__row--alt">
+            <td class="vehicle-detail-spec-table-section__label">מערכות בטיחות</td>
+            <td class="vehicle-detail-spec-table-section__value">ABS, ESP, 8 כריות אוויר, בקרת יציבות</td>
+          </tr>
+          <tr class="vehicle-detail-spec-table-section__row">
+            <td class="vehicle-detail-spec-table-section__label">מערכת מולטימדיה</td>
+            <td class="vehicle-detail-spec-table-section__value">מסך מגע 8 אינץ', Apple CarPlay, Android Auto</td>
+          </tr>
+          <tr class="vehicle-detail-spec-table-section__row vehicle-detail-spec-table-section__row--alt">
+            <td class="vehicle-detail-spec-table-section__label">מצב צמיגים</td>
+            <td class="vehicle-detail-spec-table-section__value">מצוינים - הוחלפו לאחרונה</td>
+          </tr>
+          <tr class="vehicle-detail-spec-table-section__row">
+            <td class="vehicle-detail-spec-table-section__label">היסטוריית שירות</td>
+            <td class="vehicle-detail-spec-table-section__value">טיפולים במוסך מורשה בלבד</td>
+          </tr>
+          <tr class="vehicle-detail-spec-table-section__row vehicle-detail-spec-table-section__row--alt">
+            <td class="vehicle-detail-spec-table-section__label">זמינות</td>
+            <td class="vehicle-detail-spec-table-section__value">מיידית - מוכן למסירה</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="vehicle-detail-photo-grid-section" data-layout-spec="Vehicle Detail-photo-grid">
+  <div class="vehicle-detail-photo-grid-container">
+    <div class="vehicle-detail-photo-grid-header">
+      <h2>תמונות</h2>
+      <p>מבחר תמונות איכותיות המציגות את הרכב מכל זווית חשובה.</p>
+    </div>
+    
+    <div class="vehicle-detail-photo-grid-wrapper">
+      <div class="vehicle-detail-photo-grid-item">
+        <img data-placeholder="vehicle-detail-photo-grid-exterior-profile" data-context="Professional exterior side profile photo of a modern sedan car in bright daylight, clean white background, showroom quality photography for Israeli car dealership, clear view of entire vehicle from side angle" width="600" height="400" src="/assets/site-vehicle-detail-photo-grid-exterior-profile.webp" alt="תמונת פרופיל חיצונית של הרכב">
+      </div>
+      
+      <div class="vehicle-detail-photo-grid-item">
+        <img data-placeholder="vehicle-detail-photo-grid-interior-dashboard" data-context="Professional interior photo showing dashboard, steering wheel and front seats of modern car, bright daylight lighting, clean and detailed view for Israeli car dealership, emphasizing comfort and technology" width="600" height="400" src="/assets/site-vehicle-detail-photo-grid-interior-dashboard.webp" alt="תמונת פנים הרכב - לוח מחוונים ומושבים קדמיים">
+      </div>
+      
+      <div class="vehicle-detail-photo-grid-item">
+        <img data-placeholder="vehicle-detail-photo-grid-front-angle" data-context="Professional front three-quarter angle photo of modern sedan car in bright daylight, clean white background, showroom quality for Israeli car dealership, showing front grille and headlights clearly" width="600" height="400" src="/assets/site-vehicle-detail-photo-grid-front-angle.webp" alt="תמונה מזווית קדמית של הרכב">
+      </div>
+      
+      <div class="vehicle-detail-photo-grid-item">
+        <img data-placeholder="vehicle-detail-photo-grid-rear-angle" data-context="Professional rear three-quarter angle photo of modern sedan car in bright daylight, clean white background, showroom quality for Israeli car dealership, showing rear lights and trunk area" width="600" height="400" src="/assets/site-vehicle-detail-photo-grid-rear-angle.webp" alt="תמונה מזווית אחורית של הרכב">
+      </div>
+      
+      <div class="vehicle-detail-photo-grid-item">
+        <img data-placeholder="vehicle-detail-photo-grid-wheel-detail" data-context="Professional close-up photo of car wheel and tire, showing alloy rim design and brand tire, bright daylight photography for Israeli car dealership, clean background" width="600" height="400" src="/assets/site-vehicle-detail-photo-grid-wheel-detail.webp" alt="תמונת פרט - גלגל ואופן">
+      </div>
+      
+      <div class="vehicle-detail-photo-grid-item">
+        <img data-placeholder="vehicle-detail-photo-grid-interior-rear-seats" data-context="Professional interior photo showing rear seats and passenger space of modern car, bright daylight lighting, clean view for Israeli car dealership, emphasizing spaciousness and comfort" width="600" height="400" src="/assets/site-vehicle-detail-photo-grid-interior-rear-seats.webp" alt="תמונת פנים - מושבים אחוריים">
+      </div>
+      
+      <div class="vehicle-detail-photo-grid-item">
+        <img data-placeholder="vehicle-detail-photo-grid-engine-bay" data-context="Professional photo of clean car engine bay, bright lighting showing engine components clearly, organized and maintained appearance for Israeli car dealership, technical detail view" width="600" height="400" src="/assets/site-vehicle-detail-photo-grid-engine-bay.webp" alt="תמונת תא המנוע">
+      </div>
+      
+      <div class="vehicle-detail-photo-grid-item">
+        <img data-placeholder="vehicle-detail-photo-grid-trunk-cargo" data-context="Professional photo of car trunk/cargo area opened, showing storage space and capacity, bright daylight lighting for Israeli car dealership, clean and spacious appearance" width="600" height="400" src="/assets/site-vehicle-detail-photo-grid-trunk-cargo.webp" alt="תמונת תא המטען">
+      </div>
+    </div>
+    
+    <div class="vehicle-detail-photo-grid-footer">
+      <a href="/contact" class="vehicle-detail-photo-grid-link">צפייה בכל התמונות</a>
+    </div>
+  </div>
+</section>
+
+<section class="vehicle-detail-assurance-section" data-layout-spec="Vehicle Detail-assurance">
+  <div class="vehicle-detail-assurance-container">
+    <div class="vehicle-detail-assurance-grid">
+      <div class="vehicle-detail-assurance-content">
+        <h2 class="vehicle-detail-assurance-title">מחויבות לשקיפות מלאה</h2>
+        <ul class="vehicle-detail-assurance-checklist">
+          <li class="vehicle-detail-assurance-checklist-item">
+            <div class="vehicle-detail-assurance-icon-wrapper">
+              <svg data-element-type="icon" data-icon-type="svg" class="vehicle-detail-assurance-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <span class="vehicle-detail-assurance-text">מפרט מפתח מוצג באופן עקבי</span>
+          </li>
+          <li class="vehicle-detail-assurance-checklist-item">
+            <div class="vehicle-detail-assurance-icon-wrapper">
+              <svg data-element-type="icon" data-icon-type="svg" class="vehicle-detail-assurance-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <span class="vehicle-detail-assurance-text">הערות מצב מוסברות בפירוט</span>
+          </li>
+          <li class="vehicle-detail-assurance-checklist-item">
+            <div class="vehicle-detail-assurance-icon-wrapper">
+              <svg data-element-type="icon" data-icon-type="svg" class="vehicle-detail-assurance-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <span class="vehicle-detail-assurance-text">מידע בעלות ברור ומפורט</span>
+          </li>
+          <li class="vehicle-detail-assurance-checklist-item">
+            <div class="vehicle-detail-assurance-icon-wrapper">
+              <svg data-element-type="icon" data-icon-type="svg" class="vehicle-detail-assurance-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <span class="vehicle-detail-assurance-text">מימון מוסבר בשפה פשוטה וברורה</span>
+          </li>
+          <li class="vehicle-detail-assurance-checklist-item">
+            <div class="vehicle-detail-assurance-icon-wrapper">
+              <svg data-element-type="icon" data-icon-type="svg" class="vehicle-detail-assurance-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+            <span class="vehicle-detail-assurance-text">מענה מהיר ויעיל לכל שאלה</span>
+          </li>
+        </ul>
+      </div>
+      <div class="vehicle-detail-assurance-card-wrapper">
+        <div class="vehicle-detail-assurance-card">
+          <h3 class="vehicle-detail-assurance-card-title">מה אנחנו משתפים</h3>
+          <p class="vehicle-detail-assurance-card-text">אנחנו מספקים מידע ברור ועונים על שאלות באופן ישיר. בקשו את הפרטים שהכי חשובים לכם - פרטי שירות, היסטוריית בעלות, או כל מידע אחר שתרצו לדעת לפני קבלת ההחלטה.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="vehicle-detail-next-steps-section" data-layout-spec="Vehicle Detail-next-steps">
+  <div class="vehicle-detail-next-steps-divider"></div>
+  <div class="vehicle-detail-next-steps-container">
+    <div class="vehicle-detail-next-steps-content">
+      <h2 class="vehicle-detail-next-steps-title">השלב הבא: קבלו את הפרטים המדויקים</h2>
+      <p class="vehicle-detail-next-steps-description">ספרו לנו מה תרצו לאשר ונחזור אליכם עם תשובות ברורות.</p>
+      <a href="/contact" class="vehicle-detail-next-steps-cta btn-primary">צרו קשר לגבי רכב זה</a>
+    </div>
+  </div>
+</section>
+  </main>
+  
+  <footer class="site-footer"><div class="footer-container"><div class="footer-grid"><div class="footer-column footer-about"><img src="/assets/business-logo.webp" alt="מאור רכבים" class="logo" /><p class="footer-description">מאור רכבים - המקום שלך למציאת הרכב המושלם. מבחר רחב של כלי רכב איכוtiים במחירים תחרותיים.</p></div><div class="footer-column footer-links"><h3 class="footer-title">קישורים מהירים</h3><ul class="footer-menu"><li><a href="/inventory">מלאי רכבים</a></li><li><a href="/vehicle">פרטי רכב</a></li><li><a href="/contact">צור קשר</a></li></ul></div><div class="footer-column footer-contact"><h3 class="footer-title">יצירת קשר</h3><ul class="contact-list"><li><i class="fas fa-envelope"></i><a href="mailto:[business_email]">[business_email]</a></li><li><i class="fas fa-phone"></i><a href="tel:[business_phone]">[business_phone]</a></li><li><a href="/"><i class="fas fa-map-marker-alt"></i><span>[business_address]</span></a></li></ul></div><div class="footer-column footer-social"><h3 class="footer-title">עקבו אחרינו</h3><div class="social-links"><a href="[facebook_handle]" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a><a href="[instagram_handle]" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a><a href="[whatsapp_handle]" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a></div></div></div><div class="footer-bottom"><div class="footer-legal"><a href="/privacy">מדיניות פרטיות</a><span class="separator">|</span><a href="/terms">תנאים והגבלות</a><span class="separator">|</span>
+            <a href="/return-policy" aria-label="מדיניות החזרות">
+              מדיניות החזרות
+            </a><span class="separator">|</span><a href="/accessibility">הצהרת נגישות</a></div><div class="footer-copyright"><p>© 2026 מאור רכבים. כל הזכויות שמורות.</p></div><div class="footer-attribution"><a href="https://zappy5.com" target="_blank" class="zappy-attribution" rel="noopener">Generated by Zappy</a></div></div></div></footer>
+  
+  <a href="https://wa.me/[whatsapp_handle]" class="whatsapp-float" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
+  <script src="/script.js"></script>
+
+    <div data-integration="accessibility:toolbar"></div>
+
+    <script id="zappy-mobile-submenu-script">
+    (function() {
+      function initMobileSubmenuToggles() {
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('.mobile-submenu-toggle').forEach(function(btn) { btn.remove(); });
+          document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) { menu.classList.remove('mobile-expanded'); });
+          return;
+        }
+        var items = document.querySelectorAll('.nav-menu li:has(.sub-menu), nav li:has(.sub-menu), .navbar li:has(.sub-menu), #navMenu li:has(.sub-menu)');
+        items.forEach(function(li) {
+          if (li.querySelector('.mobile-submenu-toggle')) return;
+          var submenu = li.querySelector('.sub-menu');
+          var parentLink = li.querySelector(':scope > a');
+          if (!submenu || !parentLink) return;
+          var toggleBtn = document.createElement('button');
+          toggleBtn.className = 'mobile-submenu-toggle';
+          toggleBtn.setAttribute('aria-label', 'Toggle submenu');
+          toggleBtn.setAttribute('type', 'button');
+          parentLink.insertAdjacentElement('afterend', toggleBtn);
+          toggleBtn.addEventListener('click', function(e) {
+            e.preventDefault(); e.stopPropagation();
+            document.querySelectorAll('.sub-menu.mobile-expanded').forEach(function(menu) {
+              if (menu !== submenu) { menu.classList.remove('mobile-expanded'); var t = menu.parentElement.querySelector('.mobile-submenu-toggle'); if(t) t.classList.remove('expanded'); }
+            });
+            submenu.classList.toggle('mobile-expanded');
+            toggleBtn.classList.toggle('expanded');
+          });
+        });
+      }
+      if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', initMobileSubmenuToggles); }
+      else { initMobileSubmenuToggles(); }
+      var resizeTimer; window.addEventListener('resize', function() { clearTimeout(resizeTimer); resizeTimer = setTimeout(initMobileSubmenuToggles, 250); });
+      // Re-initialize when mobile menu becomes visible (MutationObserver)
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'attributes') {
+            var target = mutation.target;
+            if (target.classList && (target.classList.contains('active') || target.classList.contains('open'))) {
+              setTimeout(initMobileSubmenuToggles, 100);
+            }
+          }
+        });
+      });
+      setTimeout(function() {
+        document.querySelectorAll('.mobile-menu, .nav-menu, #navMenu, nav').forEach(function(menu) {
+          observer.observe(menu, { attributes: true, attributeFilter: ['class', 'style'] });
+        });
+      }, 500);
+    })();
+    </script>
+</body></html>
