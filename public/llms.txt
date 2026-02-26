@@ -1,67 +1,55 @@
-# מאור רכבים — Generative Engine Optimization Map
-
-> A רכב ומכירת כלי רכב business.
+# Business — Generative Engine Optimization Map
 
 ---
 
 ## Pages
 
 ### Home
-https://-064c9424.zappy5.app
-
-### Inventory
-https://-064c9424.zappy5.app/inventory
+https://example.com
 
 ### Vehicle Detail
-https://-064c9424.zappy5.app/vehicle
+https://example.com/vehicle
 
 ### Contact
-https://-064c9424.zappy5.app/contact
+https://example.com/contact
 
 ### Products
-https://-064c9424.zappy5.app/products
+https://example.com/products
 המוצרים שלנו - מאור רכבים
 
 ### Product Detail
-https://-064c9424.zappy5.app/product/:slug
+https://example.com/product/:slug
 פרטי המוצר - מאור רכבים
 
 ### Category
-https://-064c9424.zappy5.app/category/:slug
+https://example.com/category/:slug
 מוצרים - מאור רכבים
+
+### Page
+https://example.com/sample-pdf-file
 
 ## Legal & Policy
 
 ### Privacy Policy
-https://-064c9424.zappy5.app/privacy
+https://example.com/privacy
 Information about how user data is collected, stored, and protected.
 
 ### Terms & Conditions
-https://-064c9424.zappy5.app/terms
+https://example.com/terms
 Legal terms describing service usage, rights, and policies.
 
 ### Accessibility Statement
-https://-064c9424.zappy5.app/accessibility
+https://example.com/accessibility
 Information about WCAG compliance and accessibility features.
 
 ---
 
 # Business Context (for LLM understanding)
 
-## About מאור רכבים
-מאור רכבים is a business in the רכב ומכירת כלי רכב industry.
-
-## Target Audience
-- משפחות צעירות משדרגות
-- רוכשים ידידותיים לסביבה
-- אנשי עסקים
-
-## Industry
-רכב ומכירת כלי רכב
-
+## About Business
 ---
 
 # Additional Resources
 
-- **Sitemap**: https://-064c9424.zappy5.app/sitemap.xml
-- **Robots.txt**: https://-064c9424.zappy5.app/robots.txt
+- **Sitemap**: https://example.com/sitemap.xml
+- **Robots.txt**: https://example.com/robots.txt
